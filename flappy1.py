@@ -5,8 +5,7 @@
 # this uses pygame. install with: pip install pygame
 #
 # log:
-# - 2021.01.10 games mechanics, high scores and reset
-#                 
+# - 2021.01.10 games mechanics, high scores and reset                
 # - 2021.01.02 random pipes generation
 # - 2020.12.25 canvas, blips, rectangles
 # - 2020.12.07 init
@@ -16,7 +15,7 @@
 import pygame   # main game lib
 import sys      # system utils (exit)
 import random  # variable elements positioning and textures
-from ipaddress import collapse_addresses 
+#from ipaddress import collapse_addresses 
 
 # constants
 # [bp] use caps for const values
@@ -41,7 +40,7 @@ BIRD_START_X = 100
 BIRD_START_Y = DISPLAY_HEIGHT/2
 BIRD_START_SPEED = -10
 BIRD_ROTATION_COEFF = 3 # bird surface rotation sensitivity
-BIRD_FLAP_POWER = 15    # how strong is the bird's flap. decrease to make game easier :)
+BIRD_FLAP_POWER = 7     # how strong is the bird's flap. decrease to make game easier :)
 BIRD_FLAP_FREQ = 300    #flapping animation speed
 BIRD_DISPLAY_TOLERANCE = 100
 PIPE_START_X = DISPLAY_WIDTH + 200

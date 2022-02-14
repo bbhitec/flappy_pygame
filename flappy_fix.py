@@ -169,7 +169,7 @@ def setup():
     pygame.init()
     
     # create a screen (canvas)
-    global screen = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
+    #screen = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
     
     # set a clock for frame rate control
     clock = pygame.time.Clock()
@@ -315,10 +315,10 @@ def main_loop(screen):
 
 # driver
 def main():
-    #global screen
+    screen = pygame.display.set_mode((DISPLAY_WIDTH, DISPLAY_HEIGHT))
     print ("[mst] flappy1. doodling pygame")
     setup()
-    main_loop()#screen)
+    main_loop(screen)
     
 
 
