@@ -13,9 +13,8 @@
 #
 
 import pygame   # main game lib
-import sys      # system utils (exit)
-import random  # variable elements positioning and textures
-#from ipaddress import collapse_addresses 
+from sys import exit # system utils (exit)
+import random   # variable elements positioning and textures
 
 # constants
 # [bp] use caps for const values
