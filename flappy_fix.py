@@ -11,13 +11,14 @@ future (include in readme.md):
 - game: add a highscore board, difficulty setting
 
 log:
-- 2021.01.10 games mechanics, high scores and reset
-   [wip] methodologies and best practices fix for the game [here]
-   [wip] OOPtimize
+[wip] methodologies and best practices fix for the game [here]
+[wip] OOPtimize
+[wip] add options screen: sfx\music on, difficulties
+[wip] set colors in dicts for an easier runtime modification e.g. random color
+- 2021.01.10 games mechanics, high scores (per session) and reset
 - 2021.01.02 random pipes generation
 - 2020.12.25 canvas, blips, rectangles
 - 2020.12.07 init
-- 
 '''
 
 import pygame   # main game lib
@@ -26,6 +27,8 @@ import random   # variable elements positioning and textures
 
 
 class flappyGame():
+    '''flappy bird clone game main class'''
+
     # system constants
     DISPLAY_WIDTH  = 576
     DISPLAY_HEIGHT = 1024
@@ -327,7 +330,7 @@ class flappyGame():
         
         pygame.quit()
 
-# driver
+################## DRIVER
 def main():
     print ("[mst] flappy1. doodling pygame")
 
