@@ -13,10 +13,16 @@ Based on [Clear Code's tutorial](https://youtu.be/UZg49z76cLw)
 
 ### Other Gains
 - Python venv operation and requirements delegation for github
+
+
+WIP
 - [ ] Efficient code manipulation, best practices. OOP reconfiguration (based on [tutorials](https://www.techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/optimization/))
+### Repo condition
+![medium](https://img.shields.io/badge/medium&nbsp;clean-70-yellow)
+
 
 ### Skills stack
-Python (v3), pygame
+Python (v3), pygame package
 
 
 ## Usage/How to run
