@@ -1,11 +1,11 @@
 #
-# [mst] flappy1.py 
+# [mst] flappy1.py
 # pygame learning using pygame
 # based on: https://youtu.be/UZg49z76cLw
 # this uses pygame. install with: pip install pygame
 #
 # log:
-# - 2021.01.10 games mechanics, high scores and reset                
+# - 2021.01.10 games mechanics, high scores and reset
 # - 2021.01.02 random pipes generation
 # - 2020.12.25 canvas, blips, rectangles
 # - 2020.12.07 init
@@ -26,7 +26,7 @@ FONT_ANTIALIAS = False
 SOUND_FREQ = 44100
 SOUND_SIZE = -16
 SOUND_CHANNELS = 2
-SOUND_BUFFER = 512 
+SOUND_BUFFER = 512
 COLOR_RGB = [255, 255, 255]
 SCORE_X = DISPLAY_WIDTH/2
 SCORE_Y = 100
@@ -73,10 +73,10 @@ def rotate_bird(bird_surface):
     rotation_angle = -bird_speed * BIRD_ROTATION_COEFF # we will let the bird speed determine the rotation angle
     new_surface = pygame.transform.rotozoom(bird_surface,rotation_angle,1)
     return new_surface
-    
+
 def draw_bird(bird_rotated):
     screen.blit(bird_rotated, bird_rect)
-    
+
 
 def move_pipes(pipe_rect_list_a):
     for pipe_rect in pipe_rect_list_a:
@@ -84,12 +84,12 @@ def move_pipes(pipe_rect_list_a):
     return pipe_rect_list_a
 
 def draw_pipes(pipe_rect_list_a):
-    global pipe_surface # [wip] parametrize this correctly    
+    global pipe_surface # [wip] parametrize this correctly
     for pipe_rect in pipe_rect_list_a:
         if pipe_rect.top < 0:   # flip the upper pipe texture, spot it by rect boundary
             pipe_surface_l = pygame.transform.flip(pipe_surface, False, True)
         else:
-            pipe_surface_l = pipe_surface            
+            pipe_surface_l = pipe_surface
         screen.blit(pipe_surface_l, pipe_rect)
 
 def create_pipe():
@@ -101,19 +101,19 @@ def create_pipe():
     return bottom_pipe, upper_pipe  # the two pipes are returned as a tuple
 
 # check birds-pipes collision for game over
-def check_collisions(pipe_rect_list_a):  
-    # check display boundaries  
+def check_collisions(pipe_rect_list_a):
+    # check display boundaries
     if bird_rect.top <= -BIRD_DISPLAY_TOLERANCE or bird_rect.bottom >= FLOOR_HEIGHT:
         die_sound.play()
         return False
-    
+
     for pipe in pipe_rect_list_a:
         # use rectangles for collision control.
         # [bp][wip] costly. dont overuse. consider using a simple pipes heights bounds logic
         if bird_rect.colliderect(pipe):
             collision_sound.play()
-            return False    
-    return True  #no collision detected       
+            return False
+    return True  #no collision detected
 
 # render score as text and draw as a surface
 # [wip] single score printing function, parametrized by game state
@@ -121,26 +121,26 @@ def draw_score():
     score_surface = game_font.render(str(game_score), FONT_ANTIALIAS, COLOR_RGB)
     score_rect = score_surface.get_rect(center = (SCORE_X, SCORE_Y))
     screen.blit(score_surface, score_rect)  # [demo] origin of the surfaces is the top left
-    
+
 def draw_highscore():
     highscore_surface = game_font.render(f'High Score: {int(high_score)}', FONT_ANTIALIAS, COLOR_RGB)    # [demo] use f-string to compose a title
     highscore_rect = highscore_surface.get_rect(center = (SCORE_X, HIGHSCORE_Y))
     screen.blit(highscore_surface, highscore_rect)  # [demo] origin of the surfaces is the top left
 
-# renewing the game    
-def reset_game():   
+# renewing the game
+def reset_game():
     global bird_speed    # reset bird movement
     bird_speed = BIRD_START_SPEED
-    
+
     global game_score   # reset the running score
     game_score = 0
-    
+
     bird_rect.center = (BIRD_START_X, BIRD_START_Y)
     pipe_rect_list.clear()  # clear all the pipes at start of game
-    
+
     global game_active
     game_active = True  # re-launch the game
-    
+
 def update_highscore():
     global game_score
     global high_score
@@ -178,7 +178,7 @@ game_font = pygame.font.Font('assets/04B_19.TTF', FONT_SIZE)
 ############
 # game mechanics related variables
 #
-gravity = GRAVITY_COEFF 
+gravity = GRAVITY_COEFF
 bird_speed = BIRD_START_SPEED
 game_active = False # indicate a un-halted game
 game_score = 0
@@ -231,7 +231,7 @@ swooshing_sound = pygame.mixer.Sound('sound/sfx_swooshing.wav')
 # main game loop
 #
 while True:
-    
+
     ############
     # watch for events throughout the main loop
     #
@@ -244,7 +244,7 @@ while True:
                     bird_speed = 0   # halt gravity effect upon a flap
                     bird_speed -= BIRD_FLAP_POWER
                     flap_sound.play()
-                else:                    
+                else:
                     reset_game()
             if event.key == pygame.K_ESCAPE:    # escape key
                 exit_app()
@@ -257,11 +257,11 @@ while True:
     # placing assets
     # [wip] export all to sub functions?
     #
-    
+
     # place background: this will be static and not redrawn in the game loop
     screen.blit(bg_surface, (0,0))  # [demo] origin of the surfaces is the top left, rectangle geometry will place the surface
-    
-    
+
+
     # the game  will have two modes: .... [wip]
     # elements in an active game
     if (game_active):
@@ -270,14 +270,14 @@ while True:
         bird_rect.centery += bird_speed
         bird_rotated = rotate_bird(bird_surface)    # bird rotation animation
         draw_bird(bird_rotated) # finally, draw the moving, rotated bird
-        
+
         game_active = check_collisions(pipe_rect_list)
-        
+
         # placing the pipes
         # [wip] parametrize this list properly
         pipe_rect_list = move_pipes(pipe_rect_list)
         draw_pipes(pipe_rect_list)
-        
+
         # placing the score
         game_score +=1  # [wip] option: count score as pipes passed, add the sound [here] ...
         #game_score_sound.play()
@@ -285,9 +285,9 @@ while True:
         update_highscore()
         draw_highscore()    # inactive game screen will show the high score
         screen.blit(greeting_surface, greeting_rect)
-    
+
     draw_score()
-    
+
     # placing the floor (it comes after the pipes so it will be drawn above)
     # the floor will be moving regardless the game state
     # [wip] move to function?
@@ -295,10 +295,10 @@ while True:
     # reset moving floor
     if (floor_x <= -DISPLAY_WIDTH):
         floor_x = 0
-    # [debug] print ("floor_x: " + str(floor_x))    
+    # [debug] print ("floor_x: " + str(floor_x))
     draw_floor()
 
-    
+
     ############
     # redraw the canvas
     #
