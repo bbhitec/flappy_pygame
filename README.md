@@ -1,7 +1,11 @@
 # PyGame Doodle - Flappy Bird game clone
-
 ## About
-
+<p align="center">
+  <img src="assets/bluebird-downflap.png" />
+  <img src="assets/bluebird-midflap.png" />
+  <img src="assets/bluebird-upflap.png" />
+</p>
+<br>
 This is me doodling and learning pygame by building a famous game clone.
 Based on [Clear Code's tutorial](https://youtu.be/UZg49z76cLw)
 

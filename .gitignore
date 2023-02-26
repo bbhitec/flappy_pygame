@@ -1,1 +1,5 @@
 .venv*
+build
+*.exe
+dist
+main.exe
