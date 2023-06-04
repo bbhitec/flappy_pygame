@@ -10,22 +10,23 @@ This is me doodling and learning pygame by building a famous game clone.
 Based on [Clear Code's tutorial](https://youtu.be/UZg49z76cLw)
 
 
-## Gains, What tickled my brain
+# Gains, What tickled my brain
 - General game engine operation - canvases, blips, frames, redraws
 - Actor animation basics, sounds/events operation
 - Collision control and optimization
 
-### Other Gains
+## Other Gains
 - Python venv operation and requirements delegation for github
+- Packaging with pygbag and deploying on [https://bbht.itch.io/flappy](https://bbht.itch.io/flappy)
 
 
-WIP
-- [ ] Efficient code manipulation, best practices. OOP reconfiguration (based on [tutorials](https://www.techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/optimization/))
-### Repo condition
-![medium](https://img.shields.io/badge/medium&nbsp;clean-70-yellow)
+## WIP
+- [ ] Efficient code manipulation, best practices
+- [ ] OOP reconfiguration (based on [tutorials](https://www.techwithtim.net/tutorials/game-development-with-python/pygame-tutorial/optimization/))
 
+<br>
 
-### Skills stack
+## Skills stack
 Python (v3), pygame package
 
 
