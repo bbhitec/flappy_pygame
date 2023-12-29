@@ -1,14 +1,16 @@
 # PyGame Doodle - Flappy Bird game clone
+
+
 ## About
+
 <p align="center">
+  <img src="assets/bluebird-downflap.png" />
+  <img src="assets/bluebird-downflap.png" />
   <img src="assets/bluebird-downflap.png" />
   <img src="assets/bluebird-midflap.png" />
   <img src="assets/bluebird-upflap.png" />
 </p>
-<br>
-This is me doodling and learning pygame by building a famous game clone.
-Based on [Clear Code's tutorial](https://youtu.be/UZg49z76cLw)
-
+Learning pygame by building a famous game clone.
 
 # Gains, What tickled my brain
 - General game engine operation - canvases, blips, frames, redraws
@@ -28,7 +30,7 @@ Based on [Clear Code's tutorial](https://youtu.be/UZg49z76cLw)
 
 ## Skills stack
 Python (v3), pygame package
-
+Based on [Clear Code's tutorial](https://youtu.be/UZg49z76cLw)
 
 ## Usage/How to run
 Install the required packages listed:
